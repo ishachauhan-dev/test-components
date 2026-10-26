@@ -1,0 +1,9 @@
+/* Storybook canvas only — not shipped in the published stylesheet. */
+html,
+body,
+#storybook-root {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  min-height: 100%;
+}
