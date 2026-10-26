@@ -1,10 +1,10 @@
 {
-  "name": "@isha_chauhan/test-components",
-  "version": "0.1.1",
+  "name": "@ishachauhan-dev/test-components",
+  "version": "0.1.0",
   "description": "Reusable React component library",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
+  "@ishachauhan-dev:registry": "https://npm.pkg.github.com"
+},
   "license": "MIT",
   "type": "module",
   "engines": {
