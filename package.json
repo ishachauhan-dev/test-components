@@ -1,7 +1,10 @@
 {
-  "name": "@your-scope/ui",
-  "version": "0.1.1",
+  "name": "@isha_chauhan/test-components",
+  "version": "0.1.0",
   "description": "Reusable React component library",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "license": "MIT",
   "type": "module",
   "engines": {

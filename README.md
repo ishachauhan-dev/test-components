@@ -5,7 +5,7 @@ A reusable React + TypeScript component library with Tailwind CSS v4 design toke
 ## Install
 
 ```bash
-npm install @your-scope/ui
+npm install @isha_chauhan/ui
 ```
 
 React 18 or 19 is required (`react` and `react-dom` are peer dependencies).
@@ -17,7 +17,7 @@ React 18 or 19 is required (`react` and `react-dom` are peer dependencies).
 Import the compiled stylesheet once in your app entry:
 
 ```ts
-import '@your-scope/ui/styles.css';
+import '@isha_chauhan/ui/styles.css';
 ```
 
 This file includes the design tokens and the utilities used by the components. It does **not** include Tailwind Preflight, so it will not reset your app’s base styles.
@@ -34,21 +34,21 @@ In your CSS entry:
 
 ```css
 @import 'tailwindcss';
-@import '@your-scope/ui/theme.css';
+@import '@isha_chauhan/ui/theme.css';
 
 /* Scan the published JS so component class names are generated */
-@source '../node_modules/@your-scope/ui/dist';
+@source '../node_modules/@isha_chauhan/ui/dist';
 ```
 
 `theme.css` defines all design tokens (`@theme`, light/dark CSS variables, and the `dark` variant). Point `@source` at `dist` — only that folder is published.
 
-Then import components as usual. You can still import `@your-scope/ui/styles.css` if you want the precompiled utilities as well, but `@source` is enough when Tailwind processes your app.
+Then import components as usual. You can still import `@isha_chauhan/ui/styles.css` if you want the precompiled utilities as well, but `@source` is enough when Tailwind processes your app.
 
 ## Usage
 
 ```tsx
-import { Button } from '@your-scope/ui';
-import '@your-scope/ui/styles.css';
+import { Button } from '@isha_chauhan/ui';
+import '@isha_chauhan/ui/styles.css';
 
 export function Example() {
   return (
