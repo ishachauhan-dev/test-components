@@ -120,3 +120,7 @@ npm publish --access public
 ## License
 
 MIT
+
+## Package Size
+
+See the latest [Package Size Report](./PACKAGE-SIZE.md).
