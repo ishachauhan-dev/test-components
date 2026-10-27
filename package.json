@@ -1,6 +1,6 @@
 {
   "name": "@ishachauhan-dev/test-components",
-  "version": "0.1.2",
+  "version": "0.0.2",
   "description": "Reusable React component library",
   "publishConfig": {
     "@ishachauhan-dev:registry": "https://npm.pkg.github.com"
