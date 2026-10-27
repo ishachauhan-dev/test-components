@@ -30,12 +30,22 @@
         "default": "./dist/index.cjs"
       }
     },
+    "./*": {
+      "import": {
+        "types": "./dist/*.d.ts",
+        "default": "./dist/*.js"
+      },
+      "require": {
+        "types": "./dist/*.d.ts",
+        "default": "./dist/*.cjs"
+      }
+    },
     "./styles.css": "./dist/styles.css",
     "./theme.css": "./dist/theme.css"
   },
   "scripts": {
     "dev": "vite build --watch",
-    "build": "vite build && tailwindcss -i src/styles/index.css -o dist/styles.css && cp src/styles/theme.css dist/theme.css",
+    "build": "vite build && tailwindcss -i src/styles/index.css -o dist/styles.css --minify && cp src/styles/theme.css dist/theme.css",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "lint": "eslint .",

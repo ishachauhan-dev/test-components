@@ -6,9 +6,9 @@ import { cn } from '../../lib/utils';
 const buttonVariants = cva(
   [
     'inline-flex items-center justify-center gap-2 shrink-0',
-    'font-sans font-medium whitespace-nowrap',
-    'rounded-md transition-colors',
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+    'font-nat-sans font-medium whitespace-nowrap',
+    'rounded-nat-md transition-colors',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nat-ring focus-visible:ring-offset-2 focus-visible:ring-offset-nat-background',
     'disabled:pointer-events-none disabled:opacity-50',
     'aria-disabled:pointer-events-none aria-disabled:opacity-50',
     '[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
@@ -17,20 +17,20 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'bg-primary text-primary-foreground shadow-sm hover:bg-primary/90',
+          'bg-nat-primary text-nat-primary-foreground shadow-nat-sm hover:bg-nat-primary/90',
         secondary:
-          'bg-secondary text-secondary-foreground hover:bg-secondary/80',
+          'bg-nat-secondary text-nat-secondary-foreground hover:bg-nat-secondary/80',
         outline:
-          'border border-border bg-background hover:bg-accent hover:text-accent-foreground',
-        ghost: 'hover:bg-accent hover:text-accent-foreground',
+          'border border-nat-border bg-nat-background hover:bg-nat-accent hover:text-nat-accent-foreground',
+        ghost: 'hover:bg-nat-accent hover:text-nat-accent-foreground',
         destructive:
-          'bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90',
-        link: 'text-primary underline-offset-4 hover:underline',
+          'bg-nat-destructive text-nat-destructive-foreground shadow-nat-sm hover:bg-nat-destructive/90',
+        link: 'text-nat-primary underline-offset-4 hover:underline',
       },
       size: {
-        sm: 'h-8 px-3 text-sm',
-        md: 'h-9 px-4 text-sm',
-        lg: 'h-10 px-6 text-base',
+        sm: 'h-8 px-3 text-nat-sm',
+        md: 'h-9 px-4 text-nat-sm',
+        lg: 'h-10 px-6 text-nat-base',
         icon: 'size-9',
       },
       fullWidth: {

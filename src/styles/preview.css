@@ -2,8 +2,8 @@
 html,
 body,
 #storybook-root {
-  background-color: var(--color-background);
-  color: var(--color-foreground);
-  font-family: var(--font-sans);
+  background-color: var(--nat-background);
+  color: var(--nat-foreground);
+  font-family: var(--font-nat-sans);
   min-height: 100%;
 }

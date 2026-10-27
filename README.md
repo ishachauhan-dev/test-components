@@ -1,11 +1,11 @@
 # test-components
 
-A reusable React + TypeScript component library with Tailwind CSS v4 design tokens, starting with `Button`.
+A reusable React + TypeScript component library with Tailwind CSS v4 design tokens.
 
 ## Install
 
 ```bash
-npm install @isha_chauhan/ui
+npm install @ishachauhan-dev/test-components
 ```
 
 React 18 or 19 is required (`react` and `react-dom` are peer dependencies).
@@ -17,7 +17,7 @@ React 18 or 19 is required (`react` and `react-dom` are peer dependencies).
 Import the compiled stylesheet once in your app entry:
 
 ```ts
-import '@isha_chauhan/ui/styles.css';
+import '@ishachauhan-dev/test-components/styles.css';
 ```
 
 This file includes the design tokens and the utilities used by the components. It does **not** include Tailwind Preflight, so it will not reset your app’s base styles.
@@ -34,41 +34,47 @@ In your CSS entry:
 
 ```css
 @import 'tailwindcss';
-@import '@isha_chauhan/ui/theme.css';
+@import '@ishachauhan-dev/test-components/theme.css';
 
 /* Scan the published JS so component class names are generated */
-@source '../node_modules/@isha_chauhan/ui/dist';
+@source '../node_modules/@ishachauhan-dev/test-components/dist';
 ```
 
-`theme.css` defines all design tokens (`@theme`, light/dark CSS variables, and the `dark` variant). Point `@source` at `dist` — only that folder is published.
+`theme.css` defines namespaced design tokens (`--nat-*`) so they do not collide with the app’s theme. Point `@source` at `dist` — only that folder is published.
 
-Then import components as usual. You can still import `@isha_chauhan/ui/styles.css` if you want the precompiled utilities as well, but `@source` is enough when Tailwind processes your app.
+Then import components as usual. You can still import `@ishachauhan-dev/test-components/styles.css` if you want the precompiled utilities as well, but `@source` is enough when Tailwind processes your app.
+
+## Theming
+
+Override `--nat-*` variables in the consumer app. Components read those values through `--color-nat-*` theme keys (`bg-nat-primary`, `text-nat-foreground`, and so on).
+
+```css
+:root {
+  --nat-primary: oklch(0.55 0.2 250);
+  --nat-primary-foreground: oklch(0.985 0 0);
+}
+
+.dark {
+  --nat-primary: oklch(0.7 0.15 250);
+  --nat-primary-foreground: oklch(0.145 0.014 260);
+}
+```
 
 ## Usage
 
 ```tsx
-import { Button } from '@isha_chauhan/ui';
-import '@isha_chauhan/ui/styles.css';
+import { Button } from '@ishachauhan-dev/test-components';
+import '@ishachauhan-dev/test-components/styles.css';
 
 export function Example() {
-  return (
-    <Button variant="primary" size="md" leftIcon={<MailIcon />}>
-      Continue
-    </Button>
-  );
+  return <Button variant="primary">Continue</Button>;
 }
 ```
 
-`Button` accepts `variant`, `size`, `loading`, `disabled`, `leftIcon`, `rightIcon`, `fullWidth`, `asChild`, `className`, and all native button attributes.
+Import a single component to keep unused UI out of the app bundle:
 
-```tsx
-<Button loading>Saving</Button>
-<Button variant="outline" disabled>
-  Disabled
-</Button>
-<Button asChild>
-  <a href="/docs">Read the docs</a>
-</Button>
+```ts
+import { Button } from '@ishachauhan-dev/test-components/button';
 ```
 
 ## Development
@@ -91,7 +97,7 @@ Use the Storybook toolbar theme toggle to preview light and dark tokens.
 1. Create `src/components/<ComponentName>/`:
    - `<ComponentName>.tsx` — implementation
    - `<ComponentName>.stories.tsx` — CSF3 stories with `autodocs`
-2. Re-export from `src/index.ts` (the single public barrel):
+2. Re-export from `src/index.ts`. Subpath imports (`@ishachauhan-dev/test-components/button`) are generated automatically from the folder name — do not add `package.json` exports.
 
 ```ts
 export {
@@ -100,7 +106,7 @@ export {
 } from './components/ComponentName/ComponentName';
 ```
 
-3. Use only tokens from `src/styles/theme.css` (for example `bg-primary`, `text-foreground`, `rounded-md`). Do not hardcode colors.
+3. Use only namespaced tokens from `src/styles/theme.css` (for example `bg-nat-primary`, `text-nat-foreground`, `rounded-nat-md`). Do not hardcode colors.
 
 ## Publish
 
